@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="manifest" href="manifest.json" crossorigin="use-credentials">
+    <script src='sw-reg.js'></script>
+
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon.png">
+
+    <script src="https://unpkg.com/htmx.org@1.9.6/dist/htmx.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+
+    <title>Rss Creator</title>
+
+
+</head>
+
+<body>
+    <div id="content">
+
+        <section class="section">
+
+            <div class="container">
+
+                <h1 class="title is-1 has-text-centered">Create an Rss post</h1>
+
+                <div class="columns">
+                    <div class="column is-half is-offset-one-quarter">
+
+                        <form class="main-app" id="add-form">
+                            <div class="field">
+                                <label class="label" for="channel-title">Channel Title</label>
+                                <div class="control">
+                                    <input class="input" type="text" id="channel-title" name="channel"
+                                        placeholder="Title" required>
+                                </div>
+                            </div>
+                            <div class="field">
+                                <label class="label" for="description">RSS Description</label>
+                                <div class="control">
+                                    <textarea class="textarea is-large" id="description" name="description"
+                                        placeholder="Add some words" required></textarea>
+                                </div>
+                            </div>
+                            <div class="field is-grouped is-grouped-centered">
+                                <div class="control">
+                                    <button class="button is-link" id="addButton" hx-post="/add" hx-trigger="click"
+                                        hx-swap="none">Add</button>
+                                </div>
+
+                            </div>
+                        </form>
+
+                    </div>
+                </div>
+
+            </div>
+
+        </section>
+
+
+    </div>
+
+    <script>
+        // Function to reset the form after submission
+        function resetForm() {
+            document.querySelectorAll('input[type="text"], textarea').forEach(input => {
+                input.value = "";
+            });
+        }
+
+        // HTMX event listener to reset the form after a successful submission
+        document.getElementById('addButton').addEventListener('htmx:afterRequest', function (evt) {
+            resetForm();
+        });
+    </script>
+
+</body>
+
+</html>

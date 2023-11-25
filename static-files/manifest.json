@@ -1,0 +1,33 @@
+{
+    "name": "Simple RSS Creator",
+    "short_name": "Rss Creator",
+    "icons": [
+      {
+        "src": "favicon.png",
+        "type": "image/png",
+        "sizes": "128x128"
+      },
+      {
+        "src": "icon_large.png",
+        "type": "image/png",
+        "sizes": "256x256"
+      }
+    ],
+    "lang": "en-US",
+    "id": "/",
+    "start_url": "/",
+    "display": "standalone",
+    "background_color": "white",
+    "theme_color": "white",
+    "description": "Create a simple rss feed with content that can be picked up by an rss aggregator.",
+    "share_target": {
+      "action": "/share_add",
+      "method": "POST",
+      "enctype": "application/x-www-form-urlencoded",
+      "params": {
+        "title": "title",
+        "text": "text",
+        "url": "url"
+      }
+    }
+  }

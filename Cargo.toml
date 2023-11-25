@@ -1,0 +1,19 @@
+[package]
+name = "simple-rss-creator"
+version = "0.2.0"
+edition = "2021"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+rss = "2.0.6"
+actix-web = { version = "4.4.0", default-features = true }
+serde = { version = "1.0.189", features = ["derive"] }
+tokio = { version = "1.28.2", default-features = false , features = ["sync"] }
+uuid = { version = "1.5", features = ["v4"] }
+chrono = "0.4"
+log = "0.4.17"
+env_logger = "0.10.0"
+dotenvy = "0.15.7"
+actix-files = "0.6.2"
+base64 = "0.21.5"
